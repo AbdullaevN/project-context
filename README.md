@@ -9,4 +9,4 @@ In the project directory, you can run:
 ### `npm start`
 
 
-![image](https://user-images.githubusercontent.com/24576726/174955280-5a775927-e8c1-4c7b-96fd-13876d2c68b6.png)
+![image](https://user-images.githubusercontent.com/24576726/174956020-898b1340-4843-42d6-82f4-6024054308d7.png)

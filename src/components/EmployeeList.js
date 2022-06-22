@@ -1,4 +1,4 @@
-import { Modal, Button, Alert } from "react-bootstrap";
+import { Modal, Button, Alert, Card } from "react-bootstrap";
 import { useContext, useEffect, useState } from "react";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 import Employee from "./Employee";
@@ -55,8 +55,7 @@ const EmployeeList = () => {
               className="btn btn-success"
               data-toggle="modal"
             >
-              <i className="material-icons">&#xE147;</i>{" "}
-              <span>Add New Employee</span>
+              <span>Add </span>
             </Button>
           </div>
         </div>
@@ -66,7 +65,7 @@ const EmployeeList = () => {
         Emlployee List Updated Succefully!
       </Alert>
 
-      <table className="table table-striped table-hover">
+      {/* <table className="table table-striped table-hover">
         <thead>
           <tr>
             <th>Name</th>
@@ -82,7 +81,36 @@ const EmployeeList = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
+
+      <Card style={{ width: "100%", display: "flex" }}>
+        <Card.Body>
+          <Card.Title
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "1018px",
+            }}
+          >
+            {currentEmployees.map((employee) => (
+              <tr key={employee.id}>
+                <Employee employee={employee} />
+              </tr>
+            ))}
+          </Card.Title>
+          {/* <Card.Subtitle className="mb-2 text-muted">
+            Card Subtitle
+          </Card.Subtitle>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+          <Card.Link href="#">Card Link</Card.Link>
+          <Card.Link href="#">Another Link</Card.Link> */}
+        </Card.Body>
+      </Card>
 
       <Pagination
         pages={totalPagesNum}
@@ -93,7 +121,7 @@ const EmployeeList = () => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Employee</Modal.Title>
+          <Modal.Title>Add </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <AddForm />

@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { EmployeeContext } from "../contexts/EmployeeContext";
-import { Modal, Button } from "react-bootstrap";
+import { Modal, Button, Card } from "react-bootstrap";
 import EditForm from "./EditForm";
 
 const Employee = ({ employee }) => {
@@ -17,31 +17,52 @@ const Employee = ({ employee }) => {
 
   return (
     <>
-      <td>{employee.name}</td>
+      <Card>
+        <Card.Body>
+          <Card.Subtitle>{employee.name}</Card.Subtitle>
+          <Card.Title>{employee.address}</Card.Title>
+          <Card.Title>{employee.phone}</Card.Title>
+        </Card.Body>
+        <Card.Body>
+          <Card.Link href="#">
+            <button
+              onClick={handleShow}
+              className="btn  btn-act "
+              data-toggle="modal"
+            >
+              Edit
+            </button>
+          </Card.Link>
+          <Card.Link href="#">
+            <button
+              onClick={() => deleteEmployee(employee.id)}
+              className="btn  btn-act "
+              data-toggle="modal"
+            >
+              Delete
+            </button>
+          </Card.Link>
+        </Card.Body>
+      </Card>
+      {/* <td>{employee.name}</td>
       <td>{employee.address}</td>
       <td>{employee.phone}</td>
       <td>
-        {/* <OverlayTrigger overlay={<Tooltip id={`tooltip-top`}>Edit</Tooltip>}> */}
         <button
           onClick={handleShow}
           className="btn  btn-act "
           data-toggle="modal"
         >
           Edit
-          {/* <i className="material-icons">&#xE254;</i> */}
         </button>
-        {/* </OverlayTrigger> */}
-        {/* <OverlayTrigger overlay={<Tooltip id={`tooltip-top`}>Delete</Tooltip>}> */}
         <button
           onClick={() => deleteEmployee(employee.id)}
           className="btn  btn-act "
           data-toggle="modal"
         >
           Delete
-          {/* <i className="material-icons">&#xE872;</i> */}
         </button>
-        {/* </OverlayTrigger> */}
-      </td>
+      </td> */}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
